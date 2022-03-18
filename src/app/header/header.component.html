@@ -1,0 +1,30 @@
+<div class="wrapper col1">
+    <div id="head">
+      <h1><a href="index.html">Corporation</a></h1>
+      <p>Free Website Template</p>
+      <div id="topnav">
+        <ul *ngIf="isLogin">
+          <li><a [ngClass]="{active:menuName=='home'}" href="home">Home</a></li>
+          <li><a [ngClass]="{active:menuName=='about'}" href="about">About</a></li>
+          <li><a [ngClass]="{active:menuName=='contact'}" href="contact">Contact</a></li>
+          <!-- <li><a href="#">DropDown</a>
+            <ul>
+              <li><a href="#">Link 1</a></li>
+              <li><a href="#">Link 2</a></li>
+              <li><a href="#">Link 3</a></li>
+            </ul>
+          </li> -->
+          <li class="last"><a (click)="logoutApi()" href="#">Logout</a></li>
+        </ul>
+      </div>
+      <div id="search">
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Site Search</legend>
+            <input type="submit" name="go" id="go" value="GO" />
+            <input type="text" value="Search the site&hellip;"  onfocus="this.value=(this.value=='Search the site&hellip;')? '' : this.value ;" />
+          </fieldset>
+        </form>
+      </div>
+    </div>
+</div>
