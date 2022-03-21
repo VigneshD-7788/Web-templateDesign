@@ -1,0 +1,28 @@
+<h1>Student Update Portal</h1>
+<div>
+    <h3>Name update</h3>
+    <div>
+        <input [(ngModel)]="name" type="text" placeholder="Enter Your Name">
+        <input type="button" (click)="profileNameUpdate()" value="Click to update your Name">
+    </div>
+</div>
+<div>
+<h3>Password update</h3>
+<div>
+    <input [(ngModel)]="old_password" type="text" placeholder="Enter Old Password">
+</div>
+<div>
+    <input [(ngModel)]="new_password" type="text" placeholder="Enter New Password">
+</div>
+<div>
+    <input [(ngModel)]="confirm_password" type="text" placeholder="Enter Confirm Password">
+</div>
+<input type="button" (click)="profilePasswordUpdate()" value="Click to update your password">
+</div>
+<div>
+    <h1>Picture Update</h1>
+<div>
+    <input (change)="profileImgSelect($event)"type="file">
+    <button (click)="profileImgUpdateApi()">Click to Update Your Image <picture></picture></button>
+</div>
+</div>

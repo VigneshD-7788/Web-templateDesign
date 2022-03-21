@@ -13,7 +13,11 @@
   <div class="wrapper col4">
     <div id="container">
       <div id="content">
-        <h1>About This Free CSS Template</h1>
+        <h1>This is Home Page</h1>
+       <h1><b><div class="student-list" *ngFor = "let std of stdlist">
+          <span>{{std.name}}</span>----<span>{{std.email}}</span>
+          <button (click)=" navigateToEdit()" *ngIf="studentId==std.student_id">Edit</button>
+      </div></b></h1>
         <p>This is a W3C standards compliant free website template from <a href="http://www.os-templates.com/">OS Templates</a>.</p>
         <p>This template is distributed using a <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>, which allows you to use and modify the template for both personal and commercial use when you keep the provided credit links in the footer.</p>
         <p>For more CSS templates visit <a href="http://www.os-templates.com/">Free Website Templates</a>.</p>

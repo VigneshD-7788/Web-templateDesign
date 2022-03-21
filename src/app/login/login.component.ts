@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
@@ -15,7 +15,9 @@ export class LoginComponent implements OnInit {
   login_error_message="";
 
 
-  constructor(private route:Router,private http:HttpClient) { }
+  constructor(private route:Router,private http:HttpClient) {
+  
+   }
 
   ngOnInit(): void {
   }
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
 })
     
   }
+  
 //   loginApi2(){
 //     let postArgs ={
 //       "email": this.login_email, 
