@@ -31,11 +31,18 @@ export class HeaderComponent implements OnInit {
     console.log(this.isLogin)
   }
   logoutApi(){
-      // this.http.get("http://localhost:8080/studentLogout")
-      sessionStorage.removeItem("student_id");
-      sessionStorage.removeItem("token");
+     let student_id = sessionStorage.getItem("student_id");
+      this.http.get("http://localhost:8080/studentLogout/"+student_id)
+      .subscribe((res:any)=>{
+        this.isLogin=false;
+        sessionStorage.removeItem("student_id");
+       sessionStorage.removeItem("token");
       this.route.navigateByUrl('login'); //will navigate to the login
 
-  }
+      }
+      )
+    }
+      
+
 
 }

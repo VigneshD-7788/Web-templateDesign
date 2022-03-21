@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   login_email = "";
   login_password = "";
   error = "";
+  login_error_message="";
 
 
   constructor(private route:Router,private http:HttpClient) { }
@@ -27,14 +28,38 @@ export class LoginComponent implements OnInit {
   .subscribe((res:any)=>{
   sessionStorage.setItem("token",res["token"]);
   sessionStorage.setItem("student_id",res["student_id"]);
+  this.route.navigateByUrl('home'); //will navigate to the home
 
   console.log(res);
 },
   error=>{
   console.log(error["error"]["message"]);
+  this.login_error_message=error["error"]["message"];
 })
-  this.route.navigateByUrl('home'); //will navigate to the home
     
   }
+//   loginApi2(){
+//     let postArgs ={
+//       "email": this.login_email, 
+//       "password":this.login_password
+// }
+//   this.http.post("http://localhost:8080/studentLogin",postArgs)
+//   .subscribe(
+//     next: (result: any) => {
+//       console.log(result);
+//       },
+//       error: (err: any) => {
+//       console.log(err);
+//       },
+//       complete: () => {
+//       console.log('complete');
+//       }
+   
+//   )
+  
+
+ 
+    
+//   }
 
 }
