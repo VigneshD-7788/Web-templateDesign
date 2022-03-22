@@ -40,6 +40,13 @@ export class LoginComponent implements OnInit {
 })
     
   }
+  loginSample(){
+    sessionStorage.getItem("token");
+    this.http.get("http://localhost:8080/sampleGradle")
+    .subscribe((res:any)=>{
+      console.log(res);
+    })
+  }
   
 //   loginApi2(){
 //     let postArgs ={
