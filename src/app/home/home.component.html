@@ -15,7 +15,8 @@
       <div id="content">
         <h1>This is Home Page</h1>
        <h1><b><div class="student-list" *ngFor = "let std of stdlist">
-          <span>{{std.name}}</span>----<span>{{std.email}}</span>
+        <img class="imageSize" src='http://localhost:8080/studentImage/{{std.student_id}}'/>
+        <span>{{std.name}}</span>----<span>{{std.email}}</span>
           <button (click)=" navigateToEdit()" *ngIf="studentId==std.student_id">Edit</button>
       </div></b></h1>
         <p>This is a W3C standards compliant free website template from <a href="http://www.os-templates.com/">OS Templates</a>.</p>

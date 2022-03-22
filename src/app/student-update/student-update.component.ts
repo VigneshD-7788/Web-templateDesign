@@ -33,8 +33,9 @@ export class StudentUpdateComponent implements OnInit {
       "name": this.name
 }
   this.http.post("http://localhost:8080/updateName",postName)
-  .subscribe(res=>{
+  .subscribe((res:any)=>{
   console.log(res);
+  this.showAlert(res['message']);
 },
   error=>{
   console.log(error["error"]["message"]);
@@ -50,8 +51,9 @@ export class StudentUpdateComponent implements OnInit {
       "confirm_password":this.confirm_password
 }
   this.http.post("http://localhost:8080/updatePassword",postArgs)
-  .subscribe(res=>{
+  .subscribe((res:any)=>{
   console.log(res);
+  this.showAlert(res['message']);
 },
   error=>{
   console.log(error["error"]["message"]);
@@ -64,8 +66,8 @@ export class StudentUpdateComponent implements OnInit {
     let req_header = {};
     let form = new FormData();//from javascript object for file upload
     form.append("file",this.profileImg);//append the select image in to the form object
-    form.append("student_id","1");
-    this.http.post("http://localhost:8080/uploadProfileImage",form,{headers:req_header})
+    form.append("student_id",""+this.student_id);
+    this.http.post("http://localhost:8080/uploadProfileImage",form)
     .subscribe((res:any)=>{
       //alert("profile updated successfully")
 
