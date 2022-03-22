@@ -16,9 +16,14 @@ export class StudentUpdateComponent implements OnInit {
   name="";
   student_id=sessionStorage.getItem("student_id");
 
-  constructor(private route:Router,private http:HttpClient) { }
+  constructor(private route:Router,private http:HttpClient,private routerParams:ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    //get dynamic url param, which is configured in the app.routing.
+    this.routerParams.params.subscribe(route_Params=>{
+      console.log(route_Params);
+    })
   }
   showAlert(message:string){
     alert(message);//javascript method to show the dialog box
