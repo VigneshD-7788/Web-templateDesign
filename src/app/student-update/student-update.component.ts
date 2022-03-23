@@ -68,11 +68,20 @@ export class StudentUpdateComponent implements OnInit {
 
   }
   profileImgUpdateApi(){
-    let req_header = {};
+    let token:any= sessionStorage.getItem("token");
+    let student_id:any=sessionStorage.getItem("student_id");
+    let req_headers = new HttpHeaders(
+      {
+        //for ImageUploadingFile no need to send the content Type
+    
+    "student_id":student_id,//read the id from session storage
+    "token":token//read the token from session storage
+  }
+    );
     let form = new FormData();//from javascript object for file upload
     form.append("file",this.profileImg);//append the select image in to the form object
     form.append("student_id",""+this.student_id);
-    this.http.post("http://localhost:8080/uploadProfileImage",form)
+    this.http.post("http://localhost:8080/uploadProfileImage",form,{headers:req_headers})
     .subscribe((res:any)=>{
       //alert("profile updated successfully")
 

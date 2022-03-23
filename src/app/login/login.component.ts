@@ -41,8 +41,14 @@ export class LoginComponent implements OnInit {
     
   }
   loginSample(){
-    sessionStorage.getItem("token");
-    this.http.get("http://localhost:8080/sampleGradle")
+  
+    let headers = new HttpHeaders(
+      {
+    "Content-Type":"application/json",
+    "token":"hcbdjcjd"//read the token from session storage
+  }
+    );
+    this.http.get("http://localhost:8080/sampleGradle",{headers:headers})
     .subscribe((res:any)=>{
       console.log(res);
     })
